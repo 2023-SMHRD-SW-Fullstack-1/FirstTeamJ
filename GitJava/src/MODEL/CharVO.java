@@ -7,7 +7,7 @@ public class CharVO {
 	private int stress;
 	private int exp;
 	
-	public CharVO(String nick, int hp, int stress, int exp) {
+	public CharVO(String nick, int exp, int stress, int hp) {
 		this.nick = nick;
 		this.hp = hp;
 		this.stress = stress;
