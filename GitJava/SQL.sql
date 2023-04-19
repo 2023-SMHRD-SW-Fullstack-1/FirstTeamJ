@@ -1,1 +1,1 @@
-select * from USER_INFO;
+select * from CHARACTER_INFO;
