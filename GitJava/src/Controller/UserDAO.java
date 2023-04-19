@@ -31,7 +31,7 @@ public class UserDAO {
          
       } catch (ClassNotFoundException | SQLException e) {
          e.printStackTrace();
-      }
+      }   
    }
    
    //DB닫기
