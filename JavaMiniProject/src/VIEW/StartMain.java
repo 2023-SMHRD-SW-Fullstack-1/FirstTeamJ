@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 import javax.print.attribute.SetOfIntegerSyntax;
 
+import CONTROLLER.BgmController;
 import CONTROLLER.UserDAO;
 
 public class StartMain {
@@ -15,11 +16,15 @@ public class StartMain {
       Scanner sc = new Scanner(System.in);
       
       UserDAO dao = new UserDAO();
-      
+      BgmController bgm = new BgmController(); //음악 컨트롤러 추가
+      bgm.bgmList();
+      bgm.startBgmPlay();
       gameStart();
       sc.nextLine();
 
    int choice;
+   
+   	bgm.stop();
       
    while (true) {
          System.out.println();
@@ -159,6 +164,8 @@ public class StartMain {
    }
    
    public static void gameStart() {
+	  
+	   	
 		System.out.println("\r\n"
 	            + " ____  ____  ____  ____  ____  ____  ____  _________  ____  ____  ____  ____  ____  ____  ____  ____  ____  \r\n"
 	            + "||S ||||M ||||H ||||R ||||D ||||  ||||  ||||       ||||  ||||  ||||  ||||  ||||  ||||  ||||  ||||  ||||  ||\r\n"
