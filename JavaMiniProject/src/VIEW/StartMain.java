@@ -2,6 +2,7 @@ package VIEW;
 
 import java.util.Scanner;
 
+import CONTROLLER.GameDAO;
 import CONTROLLER.UserDAO;
 
 public class StartMain {
@@ -10,6 +11,7 @@ public class StartMain {
 		Scanner sc = new Scanner(System.in);
 	      
 	      UserDAO dao = new UserDAO();
+	      GameDAO gameDao = new GameDAO();
 	      
 			System.out.println("\r\n"
 		            + " ____  ____  ____  ____  ____  ____  ____  _________  ____  ____  ____  ____  ____  ____  ____  ____  ____  \r\n"
@@ -94,7 +96,12 @@ public class StartMain {
 	                         System.out.println("                   ㅡㅡㅡㅡㅡㅡㅡㅡ-ㅡㅡㅡㅡㅡㅡㅡㅡㅡ-ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ-ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ");
 	                         System.out.print("                                             메뉴 선택    >>  "); choice = sc.nextInt();
 	                         System.out.println("                   ㅡㅡㅡㅡㅡㅡㅡㅡ-ㅡㅡㅡㅡㅡㅡㅡㅡㅡ-ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ-ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ"); 
-	                         if(choice == 1) { //풀스택 개발자 플레이
+	                         if(choice == 1) { 
+	                        	 
+	                        	 gameDao.creationChar(nick);
+	                        	 
+	                        	 
+	                        	 //풀스택 개발자 플레이
 	                        	 System.out.println(
 	                        			 	"                                      ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ\r\n"
 	                        			   +"                                     |     나는,,,                |\r\n"
@@ -115,6 +122,8 @@ public class StartMain {
 	                        	            + "                                     /    |  |::|＼､_________／/::/〃   |");
 	                        	      
 	                         }else if(choice == 2) { // 데이터베이스 관리자 플레이
+	                        	 
+	                        	 gameDao.creationChar(nick);
 	                        	 System.out.println(
 	                        			     "                                      ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ\r\n"
 	                                        +"                                     |   너도 하나의 데이터일뿐....   |\r\n"
@@ -144,6 +153,7 @@ public class StartMain {
 	                        	            + "                                            ");
 	                        	      
 	                         }else if(choice == 3) { // 인공지능 개발자 플레이
+	                        	 gameDao.creationChar(nick);
 	                        	 System.out.println(
 	                        			    "                                   ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ\r\n"
 	                                        +"                                 |  사람과 함께 공존하며         |\r\n"
