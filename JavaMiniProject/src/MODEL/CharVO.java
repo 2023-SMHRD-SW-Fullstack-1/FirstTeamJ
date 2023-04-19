@@ -1,6 +1,7 @@
 package MODEL;
 
 public class CharVO {
+
 	
 	private String nick;
 	private int hp;
@@ -45,12 +46,5 @@ public class CharVO {
 	public void setExp(int exp) {
 		this.exp = exp;
 	}
-	
-	
-	
-	
-
-	
-	
 	
 }

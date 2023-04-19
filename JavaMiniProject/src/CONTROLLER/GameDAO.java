@@ -1,4 +1,4 @@
-package Controller;
+package CONTROLLER;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import MODEL.CharVO;
 
 public class GameDAO {
-	   
+ 
 	   Connection conn = null;
 	   PreparedStatement pstm = null; //쿼리문 실행시키는 객체
 	   ResultSet rs = null; //쿼리문을 통해 발생한 응답을 받을 수 있는 객체
@@ -146,4 +146,6 @@ public class GameDAO {
 	   }
 	   
 	  
+
+
 }
