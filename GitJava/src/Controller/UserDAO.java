@@ -157,43 +157,6 @@ public class UserDAO {
 		return userList;
 	}
 	
-	
-	// 회원 탈퇴
-	public int deleteMember(String inputId, String inputPw) {
-	    getConn();
-	    int result = 0;
-	    try {
-	        // 입력받은 아이디와 비밀번호로 회원 조회
-	        String sqlCheck = "select count(*) from user_info where user_id = ? and user_pw = ?";
-	        pstm = conn.prepareStatement(sqlCheck);
-	        pstm.setString(1, inputId);
-	        pstm.setString(2, inputPw);
-	        rs = pstm.executeQuery();
-	        rs.next();
-	        int count = rs.getInt(1);
-	        if (count > 0) {
-	            // 일치하는 회원이 있다면 삭제 처리
-	            String sqlDelete = "delete from user_info where user_id = ?";
-	            pstm = conn.prepareStatement(sqlDelete);
-	            pstm.setString(1, inputId);
-	            result = pstm.executeUpdate();
-	            if (result > 0) {
-	                System.out.println("회원탈퇴 성공!");
-	            } else {
-	                System.out.println("회원탈퇴 실패!");
-	            }
-	        } else {
-	            System.out.println("일치하는 회원이 없습니다.");
-	        }
-	    } catch (SQLException e) {
-	        System.out.println("쿼리문 오류!");
-	        e.printStackTrace();
-	    } finally {
-	        close();
-	    }
-	    return result;
-	}
-	
 	// 회원 탈퇴
 	public int deleteUser(String inputId, String inputPw) {
 	    getConn();
@@ -230,4 +193,29 @@ public class UserDAO {
 	    return result;
 	    
 	}
+	
+	//닉네임 변경
+		public int updateNick(String inputId, String newNick) {
+		    getConn();
+		    int result = 0;
+		    try {
+		        // 입력받은 아이디에 해당하는 회원의 닉네임을 변경
+		        String sql = "UPDATE user_info SET user_nick = ? WHERE user_id = ?";
+		        pstm = conn.prepareStatement(sql);
+		        pstm.setString(1, newNick);
+		        pstm.setString(2, inputId);
+		        result = pstm.executeUpdate();
+		        if (result > 0) {
+		            System.out.println("닉네임 변경 성공!");
+		        } else {
+		            System.out.println("닉네임 변경 실패!");
+		        }
+		    } catch (SQLException e) {
+		        System.out.println("쿼리문 오류!");
+		        e.printStackTrace();
+		    } finally {
+		        close();
+		    }
+		    return result;
+		}
 }

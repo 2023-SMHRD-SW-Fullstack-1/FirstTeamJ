@@ -7,7 +7,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import MODEL.CharInfoVO;
 import MODEL.CharVO;
+import MODEL.UserVO;
 
 public class GameDAO {
 	 
@@ -51,16 +53,35 @@ public class GameDAO {
 	   }
 	   
 	   //캐릭터 생성
-	   public int creationChar(String nick) {
+	   public int creationChar(String nick, int choice) {
 	      charGetConn();
 	      int result = 0;
 	      try {
-	         String sql = "insert into DEVELOPER_DAMA (user_nick, char_exp, char_stress, char_hp) values (?, ?, ?, ?)";
-	         pstm = conn.prepareStatement(sql);
+	         String sqlCharVO = "insert into DEVELOPER_DAMA (user_nick, char_exp, char_stress, char_hp) values (?, ?, ?, ?)";
+	         pstm = conn.prepareStatement(sqlCharVO);
 	         pstm.setString(1,  nick);
 	         pstm.setInt(2,  0);
 	         pstm.setInt(3,  0);
 	         pstm.setInt(4,  50);
+	         
+	         result = pstm.executeUpdate();
+	         
+	         String sqlCharInfo = "insert into character_info (user_nick, char_dev, char_db, char_ai) values (?, ?, ?, ?)";
+	         pstm = conn.prepareStatement(sqlCharInfo);
+	         pstm.setString(1,  nick);
+	         if(choice == 1) {
+	        	 pstm.setString(2, nick);
+	        	 pstm.setString(3, null);
+	        	 pstm.setString(4, null);
+	         }else if(choice == 2) {
+	        	 pstm.setString(2, null);
+	        	 pstm.setString(3, nick);
+	        	 pstm.setString(4, null);
+	         }else if(choice == 3) {
+	        	 pstm.setString(2, null);
+	        	 pstm.setString(3, null);
+	        	 pstm.setString(4, nick);
+	         }
 	         
 	         result = pstm.executeUpdate();
 	         
@@ -70,6 +91,56 @@ public class GameDAO {
 	      }
 	      charClose();
 	      return result;
+	   }
+	   
+	   //전체 회원별 캐릭터 조회
+	   public ArrayList<CharInfoVO> userCharList() {
+			charGetConn();
+
+			ArrayList<CharInfoVO> charList = new ArrayList<CharInfoVO>();
+
+			try {
+				String sql = "select * from character_info";
+				pstm = conn.prepareStatement(sql);
+
+				rs = pstm.executeQuery();
+
+				while (rs.next()) {
+					String nick = rs.getString("user_nick");
+					String developer = rs.getString("char_dev");
+					String dbEngineer = rs.getString("char_db");
+					String aiDeveloper = rs.getString("char_ai");
+
+					CharInfoVO userChar = new CharInfoVO(nick);
+					charList.add(userChar);
+
+				}
+			} catch (SQLException e) {
+				System.out.println("쿼리문 오류");
+				e.printStackTrace();
+			}
+			charClose();
+			return charList;
+		}
+
+	   //기존 캐릭터 불러오기
+	   public int callChar(String nick) {
+		   charGetConn();
+		   int result = 0;
+			
+		   try {
+			   String sql = "select * from developer_dama where user_nick = ?";
+			   pstm = conn.prepareStatement(sql);
+			   pstm.setString(1, nick);   
+			   result = pstm.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		   charClose();
+		   return result;
+		   
 	   }
 	   
 	   //캐릭터 삭제
