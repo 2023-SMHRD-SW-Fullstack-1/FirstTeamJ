@@ -177,12 +177,12 @@ public class UserDAO {
 	            pstm.setString(1, inputId);
 	            result = pstm.executeUpdate();
 	            if (result > 0) {
-	                System.out.println("회원탈퇴 성공!");
+	            	System.out.println("\n                    bye bye bye bye bye bye  탈퇴에 성공했습니다!   bye bye bye bye bye bye\n");
 	            } else {
-	                System.out.println("회원탈퇴 실패!");
+	            	System.out.print("\n                    error   error   error  회원 탈퇴에 실패했습니다! error   error   error");
 	            }
 	        } else {
-	            System.out.println("일치하는 회원이 없습니다.");
+	        	System.out.print("\n                    error   error   error  일치하는 회원이 없습니다!  error   error   error");
 	        }
 	    } catch (SQLException e) {
 	        System.out.println("쿼리문 오류!");

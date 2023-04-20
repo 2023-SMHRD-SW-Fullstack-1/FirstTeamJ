@@ -5,10 +5,9 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Scanner;
 
 public class CharDAO {
-	
-
 	
 	// 캐릭터 행동 메서드 모음
 	// 출근하기, 수업듣기, 팀프로젝트, 코딩테스트, 자격증 공부, 예습 복습 등
@@ -64,8 +63,9 @@ public class CharDAO {
 	
 
 	// 게이지 변경
-	public void gaugeChange(String nick) {
+	public int gaugeChange(String nick) {
 
+		int result = 0;
         try {
         	String sql = "select * from DEVELOPER_DAMA where user_nick = ?";
 			pstm = conn.prepareStatement(sql);
@@ -97,17 +97,20 @@ public class CharDAO {
 				hp = 100;
 			}
 			
-			String sql2 = "update developer_dama set char_exp = ?, char_stress = ?, char_hp = ?";
+			String sql2 = "update developer_dama set char_exp = ?, char_stress = ?, char_hp = ? where user_nick = ?";
 			pstm = conn.prepareStatement(sql2);
 			pstm.setInt(1, exp);
 			pstm.setInt(2, stress);
 			pstm.setInt(3, hp);
-			pstm.executeUpdate();
+			pstm.setString(4, nick);
+			result = pstm.executeUpdate();
 		       
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} 
+        
+        return result;
 	}
 	
 	// 출근하기
@@ -281,7 +284,7 @@ public class CharDAO {
 			changeStress *= 2;
 		}
 	}
-
-
+ 
 
 }
+

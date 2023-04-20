@@ -121,37 +121,69 @@ public class GameDAO {
 			charClose();
 			return charList;
 		}
-
-	   //기존 캐릭터 불러오기
-	   public int callChar(String nick) {
+	   
+	   //회원 캐릭터 조회
+	   public int categoryChar(String nick) {
 		   charGetConn();
-		   int result = 0;
-			
+
+		   int charNum = -1;
+		   
 		   try {
-			   String sql = "select * from developer_dama where user_nick = ?";
-			   pstm = conn.prepareStatement(sql);
-			   pstm.setString(1, nick);   
-			   result = pstm.executeUpdate();
+		    String sql = "select * from character_info where user_nick = ?";
+			pstm = conn.prepareStatement(sql);
+		    pstm.setString(1, nick);
+		    rs = pstm.executeQuery();
+		    
+		    while(rs.next()) {
+		    	if(rs.getString("char_dev")!=null) {
+		    		return 0;
+		    	}else if(rs.getString("char_db")!=null) {
+		    		return 1;
+		    	}else if(rs.getString("char_ai")!=null) {
+		    		return 2;
+		    	}
+		    }
+		    
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
 		   charClose();
-		   return result;
+		   return charNum;
 		   
 	   }
+
+	   //기존 캐릭터 게이지 불러오기
+	   public int callChar(String nick) {
+		   charGetConn();
+		   int result = 0;
+
+		   try {
+			   String sql = "select * from developer_dama where user_nick = ?";
+			   pstm = conn.prepareStatement(sql);
+			   pstm.setString(1, nick);   
+			   result = pstm.executeUpdate();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		   charClose();  
+		   return result;
+	   }
+	  
 	   
 	   //캐릭터 삭제
-	   public int deleteChar(String id, String pw) {
+	   public int deleteChar(String nick) {
 		   charGetConn();
 		   int result = 0;
 		
 		   try {
-			   String sql = "delete from developer_dama where user_id = ? and user_pw = ?";
+			   String sql = "delete from developer_dama where user_nick = ?";
 			   pstm = conn.prepareStatement(sql);
-			   pstm.setString(1, id);
-			   pstm.setString(2, pw);   
+			   pstm.setString(1, nick); 
 			   result = pstm.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -170,7 +202,7 @@ public class GameDAO {
 			ArrayList<CharVO> charList = new ArrayList<CharVO>();
 			
 			try {
-				String sql = "select * from developer_dama order by char_exp";
+				String sql = "select * from developer_dama order by char_exp desc";
 				pstm = conn.prepareStatement(sql);
 				rs = pstm.executeQuery();
 				
@@ -183,6 +215,9 @@ public class GameDAO {
 					charList.add(cvo);
 					
 					}
+				
+
+				
 				}catch(SQLException e) {
 					System.out.println("쿼리문 오류");
 					e.printStackTrace();
@@ -213,5 +248,32 @@ public class GameDAO {
 		   }
 
 		   return charGauge;
+	   }
+	   
+	   public String existNickYn(String nick) {
+		   
+		   charGetConn();
+		   
+		    String yn = "";
+
+			try {
+				String sql = "select * from developer_dama where user_nick = ?";
+				pstm = conn.prepareStatement(sql);
+				pstm.setString(1, nick);
+				rs = pstm.executeQuery();
+				
+				if(rs.next()) {
+					   yn= "Y";
+				   }else {
+					   yn= "N";
+				   }
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			charClose();
+			return yn;
+
 	   }
 }
