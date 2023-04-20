@@ -28,6 +28,7 @@ public class StartMain {
 
 		int choice;
 
+<<<<<<< HEAD
 		while (true) {
 			System.out.println();
 			System.out.println();
@@ -38,6 +39,43 @@ public class StartMain {
 			System.out.println("                   ㅡㅡㅡㅡㅡ-ㅡㅡㅡ-ㅡㅡㅡ--ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ-ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ");
 			System.out.print("                                              메뉴 선택    >>  "); choice = sc.nextInt();
 			System.out.println("                   ㅡㅡㅡㅡㅡㅡㅡㅡ-ㅡㅡㅡㅡㅡ--ㅡ-ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ-ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ"); 
+=======
+                    }
+                }else if(choice ==2) { //캐릭터 조회
+                	
+                }else if(choice ==3) { //닉네임변경
+                	System.out.println("                  |                 ID와 변경할 새로운 닉네임을 입력해주세요                  |");
+                    System.out.println("                   ㅡ"
+                    		+ "ㅡㅡㅡㅡㅡㅡㅡ-ㅡㅡㅡㅡㅡㅡ-ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ-ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ\n");
+                    System.out.print("                                             ID : ");
+                    inputId = sc.next();
+                    System.out.print("                                           New_Nick : ");
+                    String newNick = sc.next();
+                    int result = dao.updateNick(inputId, newNick);
+                    
+                }else if(choice ==4) { //랭킹확인
+                	
+                	
+                }else { //캐릭터삭제
+                	
+                }
+                
+            }else {
+//               System.out.println("\n   Not_Found   일치하는 회원정보가 없습니다. 다시 로그인해주세요      Not_Found  \n");
+               continue;
+            }
+            
+//            
+         } else if (choice == 3) { // 게임설명
+        	 gameIntroduce();
+        	 choice = sc.nextInt();
+             if(choice == 1) {
+                continue;
+             }else {
+                System.out.println("\n                    bye bye bye bye  bye bye  게임을  종료합니다   bye bye bye bye bye bye\n");
+                 break;
+             }
+>>>>>>> branch 'master' of https://github.com/2023-SMHRD-SW-Fullstack-1/FirstTeamJ.git
 
 
 			if (choice == 1) { // 회원가입
