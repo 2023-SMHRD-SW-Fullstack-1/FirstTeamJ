@@ -70,10 +70,10 @@ public class UserDAO {
 		         if (pw.equals(inputPw)) {
 		            nick = rs.getString("user_nick");
 		         } else {
-		            System.out.println("비밀번호가 일치하지 않습니다.");
+		        	 System.out.println("error   error   error   비밀번호가 일치하지 않습니다!   error   error   error");
 		         }
 		      } else {
-		         System.out.println("해당 아이디가 존재하지 않습니다.");
+		    	  System.out.println("error   error   error   해당 아이디가 존재하지 않습니다!   error   error   error");
 		      }
 		   } catch(SQLException e) {
 		      System.out.println("쿼리문 오류");
@@ -99,7 +99,7 @@ public class UserDAO {
 			rs.next();
 			int count = rs.getInt(1);
 			if (count > 0) {
-			    System.out.println("이미 가입된 아이디 또는 닉네임입니다.");
+			    System.out.println("error   error   error   이미 가입된 아이디 또는 닉네임입니다!   error   error   error");
 			    return -1;
 			} else {
 			    // 회원가입 처리
@@ -177,12 +177,12 @@ public class UserDAO {
 	            pstm.setString(1, inputId);
 	            result = pstm.executeUpdate();
 	            if (result > 0) {
-	            	System.out.println("\n                    bye bye bye bye bye bye  탈퇴에 성공했습니다!   bye bye bye bye bye bye\n");
+	            	System.out.println("\nbye  bye  bye  bye  bye  탈퇴에 성공했습니다!   bye  bye  bye  bye  bye");
 	            } else {
-	            	System.out.print("\n                    error   error   error  회원 탈퇴에 실패했습니다! error   error   error");
+	            	System.out.println("\nerror   error   error   회원 탈퇴에 실패했습니다!   error   error   error");
 	            }
 	        } else {
-	        	System.out.print("\n                    error   error   error  일치하는 회원이 없습니다!  error   error   error");
+	        	System.out.println("\nerror   error   error   일치하는 회원이 없습니다!   error   error   error");
 	        }
 	    } catch (SQLException e) {
 	        System.out.println("쿼리문 오류!");
@@ -206,9 +206,9 @@ public class UserDAO {
 		        pstm.setString(2, inputId);
 		        result = pstm.executeUpdate();
 		        if (result > 0) {
-		            System.out.println("닉네임 변경 성공!");
+		        	System.out.println("OK   OK   OK   OK   닉네임 변경에 성공했습니다!   OK   OK   OK   OK");
 		        } else {
-		            System.out.println("닉네임 변경 실패!");
+		            System.out.println("error   error   error   닉네임 변경을 실패했습니다!   error   error   error");
 		        }
 		    } catch (SQLException e) {
 		        System.out.println("쿼리문 오류!");
@@ -232,7 +232,7 @@ public class UserDAO {
 	            rs.next();
 	            int count = rs.getInt(1);
 	            if (count > 0) {
-	                System.out.println("\n                                    이미 가입된 닉네임입니다.");
+	                System.out.println("error   error   error   이미 가입된 닉네임입니다!   error   error   error");
 	                result = true;
 	            }else {
 	            	result = false;
