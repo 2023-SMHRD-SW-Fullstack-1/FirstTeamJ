@@ -218,4 +218,31 @@ public class UserDAO {
 		    }
 		    return result;
 		}
+		
+		 //닉네임 중복확인
+	    public boolean checkNickDuplication(String NickName) {
+	        getConn();
+	        boolean result = false;
+	        try {
+	        	// 아이디와 비밀번호 중복 확인
+	            String sqlCheck = "select count(*) from developer_dama where user_nick = ?";
+	            pstm = conn.prepareStatement(sqlCheck);
+	            pstm.setString(1, NickName);
+	            rs = pstm.executeQuery();
+	            rs.next();
+	            int count = rs.getInt(1);
+	            if (count > 0) {
+	                System.out.println("\n                                    이미 가입된 닉네임입니다.");
+	                result = true;
+	            }else {
+	            	result = false;
+	            }
+	        } catch (SQLException e) {
+	            System.out.println("쿼리문 오류!");
+	            e.printStackTrace();
+	        } finally {
+	            close();
+	        }
+	        return result;
+	    }
 }

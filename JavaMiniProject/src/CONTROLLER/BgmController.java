@@ -6,7 +6,7 @@ import javazoom.jl.player.MP3Player;
 
 public class BgmController {
 	
-	ArrayList<BgmVO> bgmList = new ArrayList<BgmVO>(2);
+	ArrayList<BgmVO> bgmList = new ArrayList<BgmVO>(3);
 	MP3Player mp3 = new MP3Player();
 	
 	public void bgmList() {
@@ -26,6 +26,13 @@ public class BgmController {
 			mp3.stop();
 		}
 		mp3.play(bgmList.get(1).getSongPath());
+	}
+	
+	public void playingBgmPlay() {
+		if(mp3.isPlaying()) {
+			mp3.stop();
+		}
+		mp3.play(bgmList.get(2).getSongPath());
 	}
 	
 	public void stop() {

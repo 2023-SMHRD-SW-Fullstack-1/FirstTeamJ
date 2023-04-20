@@ -24,7 +24,7 @@ public class StartMain {
 
    int choice;
    
-   	bgm.stop();
+//   	bgm.stop();
       
    while (true) {
          System.out.println();
