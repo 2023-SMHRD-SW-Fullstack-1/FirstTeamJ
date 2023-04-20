@@ -33,9 +33,9 @@ public class StartMain {
 			System.out.println();
 			System.out.println();
 			System.out.println("----------------------------------------------------------------------------------------");
-			System.out.println("                                     스인개 개발자 키우기                             [-][ㅁ][x]");
+			System.out.println("                                   스인개 개발자 키우기                       [-][ㅁ][x]");
 			System.out.println("----------------------------------------------------------------------------------------");
-			System.out.println("         [1] 회원가입      [2] 로그인      [3] 게임설명      [4] 회원탈퇴      [5] 게임종료            ");
+			System.out.println("   [1] 회원가입      [2] 로그인      [3] 게임설명      [4] 회원탈퇴      [5] 게임종료            ");
 			System.out.println("----------------------------------------------------------------------------------------");
 			  System.out.print("                                     메뉴 선택  >>  "); choice = sc.nextInt();
 
@@ -80,10 +80,10 @@ public class StartMain {
 						System.out.println("----------------------------------------------------------------------------------------");
 						System.out.println("                                          MENU                                 [-][ㅁ][x]");
 						System.out.println("----------------------------------------------------------------------------------------");
-						System.out.println("                [1]스인개 개발자 키우기       [2]캐릭터 조회        [3]랭킹 확인                      ");
-						System.out.println("                            [4]캐릭터 삭제            [5]시작메뉴 이동                           "); 
+						System.out.println("             [1]스인개 개발자 키우기       [2]캐릭터 조회        [3]랭킹 확인                      ");
+						System.out.println("                        [4]캐릭터 삭제            [5]시작메뉴 이동                           "); 
 						System.out.println("----------------------------------------------------------------------------------------");
-						System.out.print("                                           메뉴 선택   >>  "); choice = sc.nextInt();
+						System.out.print("                                        메뉴 선택   >>  "); choice = sc.nextInt();
 						System.out.println("----------------------------------------------------------------------------------------");
 
 						if(choice == 1) { //스인재 개발자 키우기
@@ -195,7 +195,7 @@ public class StartMain {
 							
 					
 							System.out.println("----------------------------------------------------------------------------------------");
-							System.out.println("                                        랭킹 확인                                 [-][ㅁ][x]");
+							System.out.println("                                  랭킹 확인                                 [-][ㅁ][x]");
 							System.out.println("----------------------------------------------------------------------------------------");
 							bgm.playBgm(3); //버튼효과음
 							
@@ -206,7 +206,7 @@ public class StartMain {
 //								int userStress = temp.getStress();
 //								int userHp = temp.getHp();
 								
-								System.out.printf("                                        닉네임 : %s  EXP : %d	                          \n", userNick, userExp);
+								System.out.printf("                               닉네임 : %s  EXP : %d	                          \n", userNick, userExp);
 								System.out.println("----------------------------------------------------------------------------------------");
 
 							}
@@ -221,7 +221,7 @@ public class StartMain {
 							gDAO.deleteChar(inputNick);
 
 							if(gDAO.deleteChar(nick)>=0) {
-								System.out.println("\n                    bye bye bye bye  bye bye  캐릭터 삭제 완료   bye bye bye bye bye bye\n");
+								System.out.println("\nbye  bye  bye  bye  bye  bye       캐릭터 삭제 완료         bye  bye  bye  bye  bye  bye\n");
 							}
 							
 						}else if(choice == 5){
@@ -267,7 +267,7 @@ public class StartMain {
 				bgm.playBgm(3); //버튼 효과음
 				System.out.println();
 				System.out.println("\nbye  bye  bye  bye  bye  bye        게임을  종료합니다         bye  bye  bye  bye  bye  bye\n");
-				System.out.print("error   error   error   error       메뉴를 다시 선택해주세요        error   error   error   error");
+				System.out.println("\nerror   error   error   error       메뉴를 다시 선택해주세요        error   error   error   error");
 				System.out.println();
 				continue;
 			}
@@ -302,35 +302,35 @@ public class StartMain {
 						+ "|_______/ |_______|    \\__/     |_______||_______| \\______/  | _|      |_______|| _| `._____||_______/    \r\n"
 						+ "                                                        \r\n"
 		                + "                                                            ");
-		System.out.println("                                          E   N   T   E   R                                              ");
+		System.out.println("                             E   N   T   E   R                                              ");
 	}
 
 	public static void gameIntroduce() {
 		System.out.println("----------------------------------------------------------------------------------------");
-		System.out.println("                                     게  임  설  명                               [-][ㅁ][x]");
+		System.out.println("                                게  임  설  명                               [-][ㅁ][x]");
 		System.out.println("----------------------------------------------------------------------------------------");
-		System.out.println("                                스마트인재개발원 수강신청에 성공한 당신!                              ");
-		System.out.println("                당신은 풀스택 개발자, 데이터베이스 관리자, 인공지능 개발자 코스 중 하나를 선택하여                  ");
-		System.out.println("                      능력 있는 개발자가 되기 위한 스인개 생활을 시작하게 되었습니다!                         ");
+		System.out.println("                     스마트인재개발원 수강신청에 성공한 당신!                              ");
+		System.out.println("   당신은 풀스택 개발자, 데이터베이스 관리자, 인공지능 개발자 코스 중 하나를 선택하여                  ");
+		System.out.println("            능력 있는 개발자가 되기 위한 스인개 생활을 시작하게 되었습니다!                         ");
 		System.out.println("                                                                                        ");
-		System.out.println("                   [스인개 수업듣기] [팀프로젝트] [코딩테스트] [자격증 공부] [예습/복습] 을 통해               ");
-		System.out.println("                  개발 능력치를 상승시킬 수 있으나 무리한공부는 체력감소와 스트레스상승의 원인이 됩니다!              ");
-		System.out.println("            스트레스 게이지가 100 초과시 혹은 체력 게이지가 0이 되는 순간 스인재에서 퇴소당하는 불상사가 발생하니        ");
-		System.out.println("                  [점심시간] [커피마시기] [수업시간에 졸기] [퇴근] [주말에 쉬기] 등을 적절히 수행하여            ");
-		System.out.println("                           건강하고 능력있는 개발자가 되기 위해 노력해주세요!                            ");
+		System.out.println("      [스인개 수업듣기] [팀프로젝트] [코딩테스트] [자격증 공부] [예습/복습] 을 통해               ");
+		System.out.println("   개발 능력치를 상승시킬 수 있으나 무리한공부는 체력감소와 스트레스상승의 원인이 됩니다!              ");
+		System.out.println(" 스트레스 게이지가 100 초과시 혹은 체력 게이지가 0이 되는 순간 스인재에서 퇴소당하는 불상사가 발생하니        ");
+		System.out.println("   [점심시간] [커피마시기] [수업시간에 졸기] [퇴근] [주말에 쉬기] 등을 적절히 수행하여            ");
+		System.out.println("                 건강하고 능력있는 개발자가 되기 위해 노력해주세요!                            ");
 		System.out.println("----------------------------------------------------------------------------------------");
 		System.out.println("----------------------------------------------------------------------------------------"); 
-		System.out.print("                              1. 시작메뉴로 돌아가기        2. 게임종료    >>   ");
+		System.out.print("                  1. 시작메뉴로 돌아가기        2. 게임종료    >>   ");
 	}
 
 	public static void artFullStack() {
 		System.out.println(
-						 "         ------------------------\r\n"
-						+"        |     나는,,,             |\r\n"
-						+"        |     개발자중의 개발자라능,,,! |\r\n"
-						+"        -----ヽ__ノ----------------\r\n"
-						+ "               Ｏ\r\n"
-						+ "                o\r\n"
+						 "                 ------------------------\r\n"
+						+"                |     나는,,,             |\r\n"
+						+"                |     개발자중의 개발자라능,,,! |\r\n"
+						+"                -----ヽ__ノ----------------\r\n"
+						+ "                     Ｏ\r\n"
+						+ "                      o\r\n"
 					    + "                                     　　 ¸ ― ― ―｜  ― ￣￣;;　;;￣￣;;｀、 　＼\r\n"
 			            + "                                     　　｜　　　/　　　　;;　;; 　　;;　＼　　　　　　 　＼\r\n"
 			            + "                                     　　｜　　/　　　　　;; 　 ;;　 　;;　　＼ 　　 　　　＼\r\n"
@@ -360,10 +360,10 @@ public class StartMain {
 
 	public static void artDB() {
 		System.out.println(
-						 "                       ----------------------\r\n"
+						 "                       ------------------------------\r\n"
 						+"                      |   너도 하나의 데이터일뿐.... |\r\n"
-						+"                      |                      | \r\n"
-						+"                       -----ヽ___ノ------------\r\n"
+						+"                      |                              | \r\n"
+						+"                       ----------ヽ___ノ---------------\r\n"
 						+ "                             Ｏ\r\n"
 						+ "                              o\r\n"
 						+ "                           .~-                      \r\n"
@@ -390,10 +390,10 @@ public class StartMain {
 
 	public static void artAI() {
 		System.out.println(
-				         "                      ---------------------\r\n"
+				         "                      ----------------------------\r\n"
 						+"                     |  사람과 함께 공존하며        |\r\n"
 						+"                     |   더 높은곳을 향할것입니다     |\r\n"
-						+"                      -----ヽ___ノ-------------\r\n"
+						+"                      -----ヽ___ノ-------------------\r\n"
 						+ "                             Ｏ\r\n"
 						+ "                              o\r\n"
 						+ "                             :#############:     \r\n"
@@ -445,7 +445,7 @@ public class StartMain {
 			}
 			
 			System.out.println("----------------------------------------------------------------------------------------");
-			System.out.println("                                     행동을 선택해 주세요                             [-][ㅁ][x]");
+			System.out.println("                            행동을 선택해 주세요                             [-][ㅁ][x]");
 			System.out.println("----------------------------------------------------------------------------------------");
 			System.out.println("                  |번호선택|                 행 동                                           ");
 			System.out.println("                  |  1  |              스인개 출근하기                                        ");
@@ -462,17 +462,17 @@ public class StartMain {
 			System.out.println("                  |  12 |               커피 마시기                                          ");
 			System.out.println("                  |  0  |                그만하기                                           ");
 			System.out.println("----------------------------------------------------------------------------------------");
-			System.out.print("                                       행동 선택   >>  "); choice = sc.nextInt();
+			System.out.print("                                      행동 선택   >>  "); choice = sc.nextInt();
 			System.out.println("----------------------------------------------------------------------------------------");
 			
 			if (choice == 1) {
 				bgm.playBgm(3); //버튼효과음
 				cDAO.goSmhrd(nick);
 				System.out.println("----------------------------------------------------------------------------------------");
-				System.out.println("                                         스인개 출근                               [-][ㅁ][x]");
+				System.out.println("                                   스인개 출근                               [-][ㅁ][x]");
 				System.out.println("----------------------------------------------------------------------------------------");
 				System.out.println("                                                                                        ");
-				System.out.println("                                    하루하루 『진화』 중이라능,,,!                                ");
+				System.out.println("                               하루하루 『진화』 중이라능,,,!                                ");
 				System.out.println("                                                                                        ");
 				System.out.println("----------------------------------------------------------------------------------------");
 			} else if (choice == 0) {
@@ -482,110 +482,110 @@ public class StartMain {
 				bgm.playBgm(3); //버튼효과음
 				cDAO.listeningClass(nick);
 				System.out.println("----------------------------------------------------------------------------------------");
-				System.out.println("                                      스인개 수업 듣기                              [-][ㅁ][x]");
+				System.out.println("                               스인개 수업 듣기                              [-][ㅁ][x]");
 				System.out.println("----------------------------------------------------------------------------------------");
 				System.out.println("                                                                                        ");
-				System.out.println("                                   야레야레,,   『쉬울』뿐,,                                   ");
+				System.out.println("                             야레야레,,   『쉬울』뿐,,                                   ");
 				System.out.println("                                                                                        ");
 				System.out.println("----------------------------------------------------------------------------------------");
 			} else if (choice == 3) {
 				bgm.playBgm(3); //버튼효과음
 				cDAO.teamProject(nick);
 				System.out.println("----------------------------------------------------------------------------------------");
-				System.out.println("                                       팀 프 로 젝 트                              [-][ㅁ][x]");
+				System.out.println("                                 팀 프 로 젝 트                              [-][ㅁ][x]");
 				System.out.println("----------------------------------------------------------------------------------------");
 				System.out.println("                                                                                        ");
-				System.out.println("                                   훗,,,난 『ACE』라능,,,!                                   ");
+				System.out.println("                              훗,,,난 『ACE』라능,,,!                                   ");
 				System.out.println("                                                                                        ");
 				System.out.println("----------------------------------------------------------------------------------------");
 			} else if (choice == 4) {
 				bgm.playBgm(3); //버튼효과음
 				cDAO.codingTest(nick);
 				System.out.println("----------------------------------------------------------------------------------------");
-				System.out.println("                                     코 딩 테 스 트                                [-][ㅁ][x]");
+				System.out.println("                              코 딩 테 스 트                                [-][ㅁ][x]");
 				System.out.println("----------------------------------------------------------------------------------------");
 				System.out.println("                                                                                        ");
-				System.out.println("                             압도적인 『노력』의 결과를 보여줄 차례인가,,,                             ");
+				System.out.println("                       압도적인 『노력』의 결과를 보여줄 차례인가,,,                             ");
 				System.out.println("                                                                                        ");
 				System.out.println("----------------------------------------------------------------------------------------");
 			} else if (choice == 5) {
 				bgm.playBgm(3); //버튼효과음
 				cDAO.studyCertificate(nick);
 				System.out.println("----------------------------------------------------------------------------------------");
-				System.out.println("                                     정처기 자격증 획득!                             [-][ㅁ][x]");
+				System.out.println("                             정처기 자격증 획득!                             [-][ㅁ][x]");
 				System.out.println("----------------------------------------------------------------------------------------");
 				System.out.println("                                                                                        ");
-				System.out.println("                                 또 하나의 『능력』을 얻었다능,,,!                                 ");
+				System.out.println("                         또 하나의 『능력』을 얻었다능,,,!                                 ");
 				System.out.println("                                                                                        ");
 				System.out.println("----------------------------------------------------------------------------------------");
 			} else if (choice == 6) {
 				bgm.playBgm(3); //버튼효과음
 				cDAO.selfEdu(nick);
 				System.out.println("----------------------------------------------------------------------------------------");
-				System.out.println("                                     집에서 예습과 복습;                             [-][ㅁ][x]");
+				System.out.println("                             집에서 예습과 복습;                             [-][ㅁ][x]");
 				System.out.println("----------------------------------------------------------------------------------------");
 				System.out.println("                                                                                        ");
-				System.out.println("                               오오오옷,,,『능력치』가 솟아오른다능,,,                               ");
+				System.out.println("                        오오오옷,,,『능력치』가 솟아오른다능,,,                               ");
 				System.out.println("                                                                                        ");
 				System.out.println("----------------------------------------------------------------------------------------");
 			} else if (choice == 7) {
 				bgm.playBgm(3); //버튼효과음
 				cDAO.lunchTime(nick);
 				System.out.println("----------------------------------------------------------------------------------------");
-				System.out.println("                                        점심 먹으러 !!                             [-][ㅁ][x]");
+				System.out.println("                               점심 먹으러 !!                             [-][ㅁ][x]");
 				System.out.println("----------------------------------------------------------------------------------------");
 				System.out.println("                                                                                        ");
-				System.out.println("                                  이몸은 무려 『육식』파라능,,,!                                  ");
+				System.out.println("                            이몸은 무려 『육식』파라능,,,!                                  ");
 				System.out.println("                                                                                        ");
 				System.out.println("----------------------------------------------------------------------------------------");
 			} else if (choice == 8) {
 				bgm.playBgm(3); //버튼효과음
 				cDAO.goHome(nick);
 				System.out.println("----------------------------------------------------------------------------------------");
-				System.out.println("                                    수업 끝! 집에 갑니당!                            [-][ㅁ][x]");
+				System.out.println("                             수업 끝! 집에 갑니당!                            [-][ㅁ][x]");
 				System.out.println("----------------------------------------------------------------------------------------");
 				System.out.println("                                                                                        ");
-				System.out.println("                           가벼운 나의 발걸음은 너의 『달림』을 뛰어 넘는다능,,,!                         ");
+				System.out.println("                  가벼운 나의 발걸음은 너의 『달림』을 뛰어 넘는다능,,,!                         ");
 				System.out.println("                                                                                        ");
 				System.out.println("----------------------------------------------------------------------------------------");
 			} else if (choice == 9) {
 				bgm.playBgm(3); //버튼효과음
 				cDAO.monday(nick);
 				System.out.println("----------------------------------------------------------------------------------------");
-				System.out.println("                                     월요일은 5시 끝 >_<                            [-][ㅁ][x]");
+				System.out.println("                             월요일은 5시 끝 >_<                            [-][ㅁ][x]");
 				System.out.println("----------------------------------------------------------------------------------------");
 				System.out.println("                                                                                        ");
-				System.out.println("                                후훗,,,나란 놈은『시간』을 조종한다능,,,!                            ");
+				System.out.println("                       후훗,,,나란 놈은『시간』을 조종한다능,,,!                            ");
 				System.out.println("                                                                                        ");
 				System.out.println("----------------------------------------------------------------------------------------");
 			} else if (choice == 10) {
 				bgm.playBgm(3); //버튼효과음
 				cDAO.snooze(nick);
 				System.out.println("----------------------------------------------------------------------------------------");
-				System.out.println("                                      수업시간에 졸기                                [-][ㅁ][x]");
+				System.out.println("                              수업시간에 졸기                                [-][ㅁ][x]");
 				System.out.println("----------------------------------------------------------------------------------------");
 				System.out.println("                                                                                        ");
-				System.out.println("                               단지,,,『추진력』을 얻기 위함이라능,,,!                              ");
+				System.out.println("                       단지,,,『추진력』을 얻기 위함이라능,,,!                              ");
 				System.out.println("                                                                                        ");
 				System.out.println("----------------------------------------------------------------------------------------");
 			} else if (choice == 11) {
 				bgm.playBgm(3); //버튼효과음
 				cDAO.weekend(nick);
 				System.out.println("----------------------------------------------------------------------------------------");
-				System.out.println("                                         주말엔 쉬어요                              [-][ㅁ][x]");
+				System.out.println("                                주말엔 쉬어요                              [-][ㅁ][x]");
 				System.out.println("----------------------------------------------------------------------------------------");
 				System.out.println("                                                                                        ");
-				System.out.println("                                   내가 쉬면 『이세계』도 멈춘다능,,,!                             ");
+				System.out.println("                           내가 쉬면 『이세계』도 멈춘다능,,,!                             ");
 				System.out.println("                                                                                        ");
 				System.out.println("----------------------------------------------------------------------------------------");
 			} else if (choice == 12) {
 				bgm.playBgm(3); //버튼효과음
 				cDAO.coffee(nick);
 				System.out.println("----------------------------------------------------------------------------------------");
-				System.out.println("                                      커피로 카페인 충전                             [-][ㅁ][x]");
+				System.out.println("                              커피로 카페인 충전                             [-][ㅁ][x]");
 				System.out.println("----------------------------------------------------------------------------------------");
 				System.out.println("                                                                                        ");
-				System.out.println("                                  내 『혈류』는 이미 블랙이라능,,,                                ");
+				System.out.println("                          내 『혈류』는 이미 블랙이라능,,,                                ");
 				System.out.println("                                                                                        ");
 				System.out.println("----------------------------------------------------------------------------------------");
 			}
@@ -621,9 +621,9 @@ public class StartMain {
 		int choice ;
 		
 		System.out.println("----------------------------------------------------------------------------------------");
-		System.out.println("                                       내 캐릭터 만들기                              [-][ㅁ][x]");
+		System.out.println("                            내 캐릭터 만들기                              [-][ㅁ][x]");
 		System.out.println("----------------------------------------------------------------------------------------");
-		System.out.println("                     [1] 풀스택 개발자    [2] 데이터베이스 관리자   [3] 인공지능 개발자                   ");
+		System.out.println("             [1] 풀스택 개발자    [2] 데이터베이스 관리자   [3] 인공지능 개발자                   ");
 		System.out.println("----------------------------------------------------------------------------------------");
 		System.out.print("                                      메뉴 선택   >>  "); choice = sc.nextInt();
 		System.out.println("----------------------------------------------------------------------------------------");
@@ -642,8 +642,8 @@ public class StartMain {
 //			playMenu(nick);
 		} else {
 			inputError = true;
-			System.out.print("error   error   error   error       잘못된 입력입니다        error   error   error   error");
-			System.out.print("error   error   error   error      첫화면으로 돌아갑니다       error   error   error   error");
+			System.out.println("\nerror   error   error   error       잘못된 입력입니다        error   error   error   error");
+			System.out.println("\nerror   error   error   error      첫화면으로 돌아갑니다       error   error   error   error");
 //			continue;
 		}
 
